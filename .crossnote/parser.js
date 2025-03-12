@@ -169,6 +169,21 @@
         .replace('<!-- toc -->', tocHtml);
     }
     
+    // -------------------------
+    // Step 3: Convert .md links to .pdf (更新版)
+    // -------------------------
+    
+    // Markdownリンク記法を検出するための正規表現
+    // [任意のテキスト](*.md) のパターンを検出
+    const linkRegex = /(\[.*?\]\()([^)]+)\.md(\))/g;
+    
+    // .md リンクを .pdf に変換
+    processedMarkdown = processedMarkdown.replace(linkRegex, function(match, prefix, path, suffix) {
+      // リンク変換前にコンソールにデバッグ情報出力（必要に応じて）
+      // console.log(`Converting: ${match} -> ${prefix}${path}.pdf${suffix}`);
+      return `${prefix}${path}.pdf${suffix}`;
+    });
+    
     return processedMarkdown;
   },
   

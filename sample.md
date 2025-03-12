@@ -48,4 +48,16 @@ void getHoge(string context){
 [基礎記法](https://github.com/shd101wyy/markdown-preview-enhanced/blob/master/docs/ja-jp/markdown-basics.md)
 [公式ドキュメント](https://shd101wyy.github.io/markdown-preview-enhanced//#/)
 
+## mdのファイルリンクとpdfについて
+- このテンプレートを使用する際，
+```md
+[next page](./02.md)
+```
+と記載しPDF出力したとき，
+```md
+[next page](./02.pdf)
+```
+と変更されるようにパーサーを組んでいます．
+これは，PDFで見る人がいる際にページ移動を楽にするためです．
+
 追加してほしい昨日があればissueなどを建ててください
