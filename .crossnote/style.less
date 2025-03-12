@@ -1,0 +1,156 @@
+
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+.markdown-preview.markdown-preview {
+/* Markdown Preview Enhanced - Frontmatter Styling with LESS */
+
+// Variables
+@primary-color: #2c6aa0;
+@primary-light: lighten(@primary-color, 45%);
+@text-color: #0c0c0c;
+@text-light: #555;
+@border-color: rgba(0, 0, 0, 0.1);
+@tag-bg: #f0f5fa;
+@tag-color: darken(@primary-color, 10%);
+@spacing-base: 8px;
+
+h1{
+  color: @text-color;/*文字色*/
+  padding: 0.5em 0;/*上下の余白*/
+  border-top: solid 3px @primary-color;/*上線*/
+  border-bottom: solid 3px @primary-color;/*下線*/
+}
+
+h2{
+  font-size: 1.7em;
+  padding: 0.1em 0.1em;/*上下 左右の余白*/
+  color: @text-color;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 3px #7db4e6;/*左線*/
+}
+
+h3{
+  font-size: 1.4em;
+}
+
+// Main container for the frontmatter - PDF optimized
+.mpe-frontmatter {
+  margin: 0 0 @spacing-base*4 0;
+  padding: @spacing-base*2.5;
+  background-color: fade(@primary-light, 60%);
+  border-left: 4px solid @primary-color;
+  border-radius: 0 4px 4px 0;
+  page-break-inside: avoid !important; // Critical for PDF
+  break-inside: avoid !important; // Modern browsers
+  
+  // Typography - using system font stack optimized for print
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  // Document title styling
+  .mpe-frontmatter-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: @text-color;
+    margin: 0 0 @spacing-base*1.75 0;
+    padding: 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  
+  // Author styling
+  .mpe-frontmatter-author {
+    font-size: 15px;
+    color: @text-light;
+    margin: 0 0 @spacing-base*1.5 0;
+    padding: 0;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  
+  // Tags container
+  .mpe-frontmatter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: @spacing-base;
+    margin: 0 0 @spacing-base*1.75 0;
+    padding: 0;
+    
+    // Individual tag styling
+    .mpe-frontmatter-tag {
+      display: inline-block;
+      background-color: @tag-bg;
+      color: @tag-color;
+      padding: @spacing-base*0.5 @spacing-base*1.25;
+      font-size: 12px;
+      border-radius: @spacing-base*1.5;
+      line-height: 1.2;
+      font-weight: 500;
+      border: 1px solid darken(@tag-bg, 8%);
+      
+      // Print-specific styling to ensure visibility
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  }
+  
+  // Container for other metadata fields
+  .mpe-frontmatter-other {
+    margin-top: @spacing-base*1.75;
+    padding-top: @spacing-base*1.75;
+    border-top: 1px solid @border-color;
+    
+    // Individual metadata field container
+    .mpe-frontmatter-field {
+      display: flex;
+      margin-bottom: @spacing-base*0.75;
+      font-size: 13px;
+      line-height: 1.4;
+      
+      // Metadata field key styling
+      .mpe-frontmatter-key {
+        font-weight: 600;
+        color: darken(@text-light, 5%);
+        width: 100px;
+        flex-shrink: 0;
+      }
+      
+      // Metadata field value styling
+      .mpe-frontmatter-value {
+        color: @text-color;
+      }
+    }
+  }
+}
+
+// Print-specific optimizations
+@media print {
+  .mpe-frontmatter {
+    background-color: fade(@primary-light, 30%) !important;
+    border-left: 2px solid @primary-color !important;
+    box-shadow: none !important;
+    padding: @spacing-base*2 !important;
+    margin-bottom: @spacing-base*3 !important;
+    
+    // Print-specific adjustments for tags
+    .mpe-frontmatter-tag {
+      background-color: fade(@tag-bg, 50%) !important;
+      border: 1px solid darken(@tag-bg, 15%) !important;
+      color: darken(@tag-color, 10%) !important;
+    }
+  }
+  
+  // Ensure page breaks don't occur within frontmatter
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  
+  p, blockquote, ul, ol, dl, table, figure {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+}
+
