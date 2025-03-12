@@ -27,6 +27,8 @@ void getHoge(string context){
 }
 ```
 
+@import "./sample.cpp" {.line-numbers highlight=2}
+
 ==マーカー==
 
 !!! note
@@ -44,5 +46,6 @@ void getHoge(string context){
 
 この他基本的な記法や機能は以下のURLより
 [基礎記法](https://github.com/shd101wyy/markdown-preview-enhanced/blob/master/docs/ja-jp/markdown-basics.md)
+[公式ドキュメント](https://shd101wyy.github.io/markdown-preview-enhanced//#/)
 
 追加してほしい昨日があればissueなどを建ててください
